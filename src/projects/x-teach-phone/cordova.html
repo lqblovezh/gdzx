@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <script src="./cordova.js"></script>
+  <script src="./cordova_plugins.js"></script>
+  <script type="text/javascript" src="./static/config.js"></script>
+  <% if (dev) { %>
+  <link rel="stylesheet" href="<%= publicPath %>static/css/style.css">
+  <script src="<%= publicPath %>cdn/polyfill.min.js"></script>
+  <script src="<%= publicPath %>cdn/es6-shim/es6-shim.min.js"></script>
+  <!-- <script src="http://192.168.1.103:7000/demo/reader/reader3.js"></script> -->
+  <script src="<%= publicPath %>cdn/reader3/3.1.x/reader3.js"></script>
+  <link rel="stylesheet" href="<%= publicPath %>cdn/reader3/3.1.x/reader3.css" />
+  <link rel="stylesheet" href="<%= publicPath %>cdn/reader3/3.1.x/theme/mobile/style.css" />
+  <script src="<%= publicPath %>static/GliBookUtil.js"></script>
+  <!-- <script type="text/javascript" src="<%= publicPath %>../config_js"></script> -->
+  <% } else { %>
+  <link rel="stylesheet" href="./static/css/style.css">
+  <script src="./cdn/polyfill.min.js"></script>
+  <script src="./cdn/es6-shim/es6-shim.min.js"></script>
+  <script src="./cdn/reader3/3.1.x/reader3.js"></script>
+  <link rel="stylesheet" href="./cdn/reader3/3.1.x/reader3.css" />
+  <link rel="stylesheet" href="./cdn/reader3/3.1.x/theme/mobile/style.css" />
+  <script src="./static/GliBookUtil.js"></script>
+  <% } %>
+  <script>
+    var TOKEN_LOCAL = true;
+  </script>
+  <!--<script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>-->
+</head>
+
+<body id="body">
+  <div class="my-pre-mask">
+    <div class="pre-loading">
+      <svg class="my-circular" viewBox="25 25 50 50">
+        <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+      </svg>
+      <div class="loading-text">加载中...</div>
+    </div>
+  </div>
+  <div id="app"></div>
+  <!-- built files will be auto injected  2.5 * 50-->
+  <script type="text/javascript">
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = docEl.clientWidth > 750 ? 750 : docEl.clientWidth;
+          if (!clientWidth) { return };
+          docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+        };
+      recalc();
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window)
+  </script>
+</body>
+
+</html>

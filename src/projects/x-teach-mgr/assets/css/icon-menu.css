@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('../icon-menu/icomoon.eot?5ti2no');
+  src: url('../icon-menu/icomoon.eot?5ti2no#iefix') format('embedded-opentype'),
+    url('../icon-menu/icomoon.ttf?5ti2no') format('truetype'),
+    url('../icon-menu/icomoon.woff?5ti2no') format('woff'),
+    url('../icon-menu/icomoon.svg?5ti2no#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^='icon-menu-'],
+[class*=' icon-menu-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  // line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu-cash-management:before {
+  content: '\e900';
+}
+.icon-menu-class-management-1:before {
+  content: '\e901';
+}
+.icon-menu-answering-question:before {
+  content: '\e902';
+}
+.icon-menu-information:before {
+  content: '\e903';
+}
+.icon-menu-resource-library-pub:before {
+  content: '\e904';
+}
+.icon-menu-course-library:before {
+  content: '\e905';
+}
+.icon-menu-leaving-message:before {
+  content: '\e906';
+}
+.icon-menu-marking:before {
+  content: '\e907';
+}
+.icon-menu-home:before {
+  content: '\e908';
+}
+.icon-menu-resource-library:before {
+  content: '\e909';
+}
+.icon-menu-my-course:before {
+  content: '\e90a';
+}
+.icon-menu-class-management:before {
+  content: '\e90b';
+}
+.icon-menu-code-audit:before {
+  content: '\e90c';
+}
+.icon-menu-private-letter:before {
+  content: '\e90d';
+}
+.icon-menu-news:before {
+  content: '\e90e';
+}
+.icon-menu-lives:before {
+  content: '\e90f';
+}
+.icon-menu-lives-audit:before {
+  content: '\e910';
+}
+.icon-menu-course-order:before {
+  content: '\e911';
+}
+.icon-menu-course-authorized:before {
+  content: '\e912';
+}
+.icon-menu-resource-licensing:before {
+  content: '\e913';
+}
+.icon-menu-banner-setting:before {
+  content: '\e914';
+}
+.icon-menu-ad-setting:before {
+  content: '\e915';
+}
+.icon-menu-index-setting:before {
+  content: '\e916';
+}
+.icon-menu-foot-setting:before {
+  content: '\e917';
+}
+.icon-menu-course-category:before {
+  content: '\e918';
+}
+.icon-menu-Integral-mall:before {
+  content: '\e919';
+}
+.icon-menu-Integral-setting:before {
+  content: '\e91a';
+}
+.icon-menu-Integral-exchange:before {
+  content: '\e91b';
+}
+.icon-menu-records:before {
+  content: '\e91c';
+}
+.icon-menu-management:before {
+  content: '\e91d';
+}
+.icon-menu-edit-list:before {
+  content: '\e91e';
+}
+.icon-menu-editing-audit:before {
+  content: '\e91f';
+}
+.icon-menu-user-report:before {
+  content: '\e920';
+}
+.icon-menu-Income-report:before {
+  content: '\e921';
+}

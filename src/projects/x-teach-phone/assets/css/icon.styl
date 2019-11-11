@@ -1,0 +1,243 @@
+@import "./mixin.styl";
+$share-icons = share-xinlang share-pengyou share-qzone share-weixin share-qq
+icon(imgUrl, w, h=w, ext='png')
+	display inline-block
+	width w
+	height h
+	background url('../img/'+imgUrl+'.'+ext) no-repeat center
+	background-size contain
+
+fullbg(imgUrl, ext='png')
+	background url('../img/'+imgUrl+'.'+ext) no-repeat center
+	background-size cover
+
+.sp-icon
+	content ''
+	position absolute
+	top 0
+	left 0
+
+.icon-teacher_home
+	icon('icon-teacher_home', 0.9rem, 0.9rem)
+.icon-trash
+	icon('icon-trash', 0.27rem, 0.28rem)
+.icon-retract
+	icon('icon-retract', 0.29rem, 0.12rem)
+.icon-enter
+	icon('icon-enter', 0.15rem, 0.26rem)
+.icon-close_u
+	icon('icon-close_u', 0.38rem)
+.icon-more
+	icon('icon-more', 14px)
+.icon-search__s
+	icon('search--gray@2x', 0.27rem)
+.icon-search__home
+	icon('home-search', 0.36rem)
+.icon-search_h
+	icon('search', 0.42rem)
+.icon-msg
+	icon('icon-msg', 0.3rem, 0.29rem)
+.icon-scale
+	icon('scale', 0.36rem)
+.icon-play
+	icon('icon-play', 0.14rem, 0.18rem)
+.icon-play__audio
+	icon('icon-audio_play', 1.21rem)
+.icon-play__pause
+	icon('icon-audio_pause', 1.21rem)
+.icon-good
+	icon('icon-good', 0.29rem, 0.29rem)
+.icon-good_active
+	icon('icon-good_active', 0.29rem, 0.29rem)
+.icon-comment
+	icon('icon-comment', 0.30rem, 0.29rem)
+.icon-right-rect
+	icon('icon-right-rect', 0.12rem, 0.16rem)
+.icon-prev__audio
+	icon('icon-prev__audio', 0.38rem)
+.icon-next__audio
+	icon('icon-next__audio', 0.38rem)
+.icon-success
+	icon('icon-success_t', 1rem, 1rem)
+.icon-failed
+	icon('icon-failed_t', 1rem, 1rem)
+.icon-join
+	icon('icon-join', 0.2rem)
+.icon-plus_white
+	icon('icon-plus', 0.2rem)
+.icon-leave-message
+	icon('icon-message', 0.3rem, 0.26rem)
+.icon-envelope
+	icon('icon-envelope', 0.3rem, 0.26rem)
+.icon-play__blue
+	icon('icon-play_blue', 0.14rem, 0.18rem)
+.icon-expand
+	icon('icon-expand', 0.28rem, 0.15rem)
+.icon-collapse
+	icon('icon-collapse', 0.28rem, 0.15rem)
+.icon-wx
+	icon('icon-wx', 0.38rem)
+.icon-zhifubao
+	icon('icon-zhifubao', 0.38rem)
+.icon-triangle
+	icon('icon-triangle', 0.12rem, 0.16rem)
+.icon-wx_login
+	icon('icon-weixin', 0.75rem)
+.icon-qq_login
+	icon('icon-qq', 0.75rem)
+.icon-user
+	icon('icon-user', 0.31rem, 0.34rem)
+.icon-key
+	icon('icon-key', 0.31rem, 0.34rem)
+.icon-back
+	icon('back', 0.24rem, 0.36rem)
+.icon-phone
+	icon('icon-phone', 0.31rem, 0.34rem)
+.icon-code
+	icon('icon-code', 0.31rem, 0.34rem)
+.icon-envelope_s
+	icon('icon-envelope_s', 0.31rem, 0.34rem)
+.icon-male
+	icon('icon-male', 0.14rem, 0.24rem)
+.icon-female
+	icon('icon-female', 0.14rem, 0.24rem)
+.icon-info
+	icon('icon-info', 0.4rem)
+.icon-test_u
+	icon('icon-test_u', 0.4rem)
+.icon-follow
+	icon('icon-follow', 0.4rem)
+.icon-order
+	icon('icon-order', 0.4rem)
+.icon-jifen
+	icon('icon-jifen', 0.4rem)
+.icon-shop
+	icon('icon-shop', 0.4rem)
+.icon-gift
+	icon('icon-gift', 0.34rem)
+.icon-coin-big
+	icon('icon-coin_big', 0.28rem, 0.26rem)
+.icon-coin
+	icon('icon-coin', 0.21rem, 0.2rem)
+.icon-default_avatar
+	icon('avatar', 1.5rem)
+.icon-star_empty
+	icon('emptyStar', 0.18rem)
+.icon-star_empty-large
+	icon('emptyStar', 0.5rem)
+.icon-star_full
+	icon('fullStar', 0.18rem)
+.icon-star_full-large
+	icon('fullStar', 0.5rem)
+.icon-star_half
+	icon('halfStar', 0.18rem)
+.icon-star_half-large
+	icon('halfStar', 0.5rem)
+.icon-empty_bg
+	icon('empty_bg', 3.13rem, 2.75rem)
+.icon-guess-like
+	&:before
+		content ''
+		position absolute
+		top -2px
+		left 0
+		icon('icon-guess-like', 0.38rem)
+.icon-live-preview
+	&:before
+		@extend .sp-icon
+		icon('icon-live-preview', 0.38rem, 0.27rem)
+.icon-home-course
+	&:before
+		@extend .sp-icon
+		icon('icon-course', 0.34rem, 0.32rem)
+.icon-home-teacher
+	&:before
+		content ''
+		position absolute
+		top -2px
+		left 0
+		icon('icon-teacher', 0.38rem)
+.icon-home-recommend
+	&:before
+		content ''
+		position absolute
+		top -2px
+		left 0
+		icon('icon-recommend', 0.38rem)
+.radio-box
+	label
+		icon('icon-unselected', 0.3rem)
+	input:checked+label
+		icon('icon-selected', 0.3rem)
+.check-box
+	label
+		icon('icon-rect', 0.3rem)
+	input:checked+label
+		icon('icon-rect-selected', 0.3rem)
+.select-box
+	&:after
+		icon('icon-expand_s', 0.12rem, 0.07rem)
+.img-shop_bg
+	icon('icon-empty-shopcar', 3.2rem, 2.8rem)
+.img-teacher_bg
+	fullbg('img_my_bg')
+.img-login_bg
+	icon('img_logo', 1.45rem, 1.16rem)
+.icon-user_bg
+	fullbg('img_my_bg')
+.icon-vouchers_bg
+	fullbg('icon-coupons')
+
+icon-bg('today-course', 0.36rem, 0.35rem)
+icon-bg('spec-course', 0.36rem, 0.35rem)
+icon-bg('persons', 0.22rem, 0.2rem)
+icon-bg('famous-teacher', 0.38rem, 0.38rem)
+icon-bg('study-course', 0.36rem, 0.39rem)
+icon-bg('index-shop', 0.36rem, 0.36rem)
+icon-bg('coin', 0.24rem, 0.23rem)
+icon-bg('scan', 0.94rem, 0.74rem)
+icon-bg('bell', 0.4rem, 0.4rem)
+icon-bg('back', 0.24rem, 0.42rem)
+icon-bg('search', 0.42rem, 0.42rem)
+icon-bg('search--gray', 0.27rem, 0.27rem)
+icon-bg('location', 0.24rem, 0.3rem)
+icon-bg('quote', 0.14rem, 0.1rem)
+icon-bg('cancel', 0.3rem, 0.3rem)
+icon-bg('dropdown', 0.18rem, 0.11rem)
+icon-bg('exam', 0.35rem, 0.34rem)
+icon-bg('answer', 0.36rem, 0.34rem)
+icon-bg('discuss', 0.37rem, 0.34rem)
+icon-bg('upload', 0.3rem, 0.3rem)
+icon-bg('img-close', 0.3rem, 0.3rem)
+icon-bg('next', 0.6rem, 0.6rem)
+icon-bg('next_active', 0.6rem, 0.6rem)
+icon-bg('prev', 0.6rem, 0.6rem)
+icon-bg('prev_active', 0.6rem, 0.6rem)
+icon-bg('an', 15px, 1ex)
+icon-bg('evaluate1', 1.56rem, 1.36rem)
+icon-bg('evaluate2', 1.56rem, 1.36rem)
+icon-bg('evaluate3', 1.56rem, 1.36rem)
+icon-bg('evaluate4', 1.56rem, 1.36rem)
+icon-bg('evaluate5', 1.56rem, 1.36rem)
+icon-bg('error', 0.38rem, 0.38rem)
+icon-bg('right', 0.38rem, 0.38rem)
+icon-bg('img', 0.5rem, 0.4rem)
+icon-bg('close', 0.28rem, 0.28rem)
+icon-bg('enter', 0.15rem, 0.26rem)
+icon-bg('success', 1.3rem, 1.3rem)
+icon-bg('failed', 1.3rem, 1.3rem)
+icon-bg('tag-teacher', 0.73rem, 0.28rem)
+icon-bg('tag-teacher', 0.73rem, 0.28rem)
+icon-bg('msg-trash', 0.24rem, 0.29rem)
+icon-bg('system-avatar', 0.74rem, 0.74rem)
+icon-bg('mall', 0.9rem, 0.9rem)
+icon-bg('college', 0.9rem, 0.9rem)
+icon-bg('course', 0.9rem, 0.9rem)
+icon-bg('ar', 0.9rem, 0.9rem)
+icon-bg('mall-bg', 100%, 3.54rem)
+icon-bg('coupon--used', 100%, 1.58rem)
+icon-bg('coupon', 100%, 1.58rem)
+icon-bg('share', 0.37rem, 0.43rem)
+
+for name in $share-icons
+	icon-bg(name, 1.31rem, 1.73rem)

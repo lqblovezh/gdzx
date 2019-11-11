@@ -1,0 +1,287 @@
+@import './var.styl'
+.fw-info
+	padding-top 0.37rem
+	font-size 12px
+	color #777
+	.fw-info__title
+		font-size 15px
+		color #444
+	.fw-info__intro
+		width 2.4rem
+		margin-top 0.1rem
+		margin-bottom 0.1rem
+		line-height 0.3rem
+	.fw-info__course
+		display flex
+		align-items center
+		margin-top 0.42rem
+		font-size 12px
+		.fw-info__course-score
+			margin-right 0.4rem
+		span
+			margin-left 0.1rem
+	.fw-info__score
+		margin-top 0.42rem
+		font-size 12px
+		span
+			display inline-block
+			margin-left 0.1rem
+
+
+
+// 表单样式
+.control-title
+	margin-top 2.94rem
+button
+	&.btn-test
+		width 6.6rem
+		height 0.8rem
+		line-height 0.8rem
+		background-color #3496e1
+		color #FFF
+		border none
+	&.unclick
+		background-color #86c0ec
+	&.btn-default
+		display block
+		width 100%
+		height 1rem
+		color #3496e1
+		font-size 16px
+		background-color #fff
+		outline none
+		border none
+	&.btn-orange
+		color #FFF
+		background-color #ff5d16
+.btn-large
+	width 100%
+	padding 0.24rem 0
+	color #fff
+	background-color #169bd5
+	border none
+	outline none
+	font-size 16px
+	border-radius 5px
+.btn-primary
+	color #FFF
+	background-color #3496e1
+// 字体颜色
+.lightOrange
+	color #ff5d16!important
+.c_bg_theme
+	background-color #3496e1
+.c_theme
+	color #3496e1
+.orange
+	color #ff9306
+.orange1
+	color #fe824e
+.gray
+	color #555
+.blue
+	color #3496e1
+.black6
+	color #666
+.black4
+	color #444
+.black8
+	color #888
+.black3
+	color #333
+.main-color
+	background-color #f4f5f7
+
+// cell 布局
+.line
+	height 0.2rem
+	background-color #f9f7fc
+	margin-left -0.3rem
+	margin-right -0.3rem
+.info-menu
+	.line-part
+		margin-left -0.3rem
+		margin-right -0.3rem
+	.info-item
+		display flex
+		height 1rem
+		line-height 1rem
+		justify-content space-between
+		font-size 14px
+		background-color #fff
+		border-bottom 1px solid #dfe6eb
+		&:last-child
+			border-bottom none
+	.icon-small
+		display inline-block
+		width 0.15rem
+		height 0.26rem
+		margin-left 0.14rem
+		margin-top 0.37rem
+
+.tabbar
+	display flex
+	justify-content space-around
+	.tabbar-nav
+		display inline-block
+		padding 0.2rem 0
+		&.active
+			color #3496e1
+			border-bottom 2px solid #3496e1
+.page-teacher-detail
+	> .container
+		.tabcontainer
+			padding-top 0.2rem
+
+// 优惠券样式
+.dp-item
+	display flex
+	align-items center
+	margin-top 0.27rem
+	height 1.58rem
+	font-size 14px
+	&:last-child
+		margin-bottom 0.27rem
+	.dp-item__price
+		width 2.25rem
+		text-align center
+		font-size 39px
+		vertical-align bottom
+		color #FFF
+		span
+			display inline-block
+			padding-top 8px
+			font-size 28px
+	.dp-item__info
+		p
+			&:nth-of-type(2)
+				line-height 0.35rem
+			&:last-child
+				margin-top 0.12rem
+				font-size 12px
+
+.search
+	font-size 14px
+	.icon-clear
+		position absolute
+		display inline-block
+		width 0.34rem
+		height 0.31rem
+		right 0
+	form
+		width 80%
+		position relative
+		margin 0.2rem 0.3rem
+		.icon-search
+			position absolute
+			left 0.2rem
+			top 0.03rem
+			width 0.27rem
+			height 0.27rem
+			display inline-block
+		input
+			padding 0.1rem 0
+			width 100%
+			text-indent 2.3em
+			border-radius 999px
+			border none
+			background-color #FEFEFE
+			&:focus
+				outline none
+.msg
+	&.bb
+		padding-bottom 0.2rem
+		border-bottom 1px solid #e9eef0
+		margin-bottom 0.2rem
+	font-size 14px
+	img
+		float left
+		width 0.74rem
+		height 0.74rem
+		border-radius 100%
+	.msg-sub
+		padding-top 0.24rem
+		img
+			width 0.4rem
+			height 0.4rem
+		.msg-right
+			padding-left 0.15rem
+		&:last-child
+			.msg-right__time
+				border-bottom none
+	.msg-right
+		overflow hidden
+		padding-left 0.18rem
+		.msg-right__name
+			padding-top 0.13rem
+			padding-bottom 0.2rem
+			color #333
+		.msg-right__txt
+			line-height 0.45rem
+			color #4d4d4d
+		.msg-right__time
+			padding-top 0.5rem
+			padding-bottom 0.25rem
+			color #999999
+			font-size 12px
+			&.bordered
+				border-bottom 1px solid #e9eef0
+// 私信聊天样式
+.msg-dialog
+	display flex
+	margin-bottom 30px
+	font-size 14px
+	.img 
+		img 	
+			height 0.74rem
+			width 0.74rem
+			border-radius 50%
+			background-color #e8e8e8
+	&.me
+		flex-direction row-reverse
+		.img
+			padding-top 0.6rem
+		.txt 
+			margin-right 35px
+			.bubble
+				background #3496e1
+				color #fff
+				&:before
+					transform rotate(180deg)
+					left 100%
+					top 0.32rem
+					border-color:transparent #3496e1 transparent transparent
+					box-shadow none
+	.txt
+		max-width 5.46rem
+		.time 
+			color #999
+			margin-left 20px
+			font-size 12px
+		.bubble
+			background #fff
+			padding 10px
+			left 20px
+			top 10px
+			line-height 0.5rem
+			border-radius 6px
+			position relative
+			box-shadow 0 0 10px #e8e8e8
+			&:before
+				content ''
+				color #4d4d4d
+				position absolute
+				left -0.1rem
+				top 0.3rem
+				width 0
+				height 0
+				content ''
+				border-style solid
+				border-width 0.1rem
+				border-color #FFF #FFF transparent transparent
+				transform rotate(-135deg)
+				box-shadow 0 -10px 10px #e8e8e8
+.bg-empty
+	height 3.5rem
+	background url(../img/bg-empty.png) no-repeat center
+	background-size cover

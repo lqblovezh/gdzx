@@ -1,0 +1,358 @@
+@import './util.styl'
+@import './var.styl'
+@import './mixin.styl'
+
+/* 页面基本样式 */
+.container
+  margin 0 0.3rem
+.hide-scrollbar
+  &::-webkit-scrollbar
+    display none
+.shadow
+  position relative
+  margin-bottom $shadow-height
+  &::after
+    content ''
+    display block
+    position absolute
+    bottom -($shadow-height)
+    height $shadow-height
+    left 0
+    width 100%
+    background-color #F4F5F7
+.text-right
+  text-align right
+.inline-flex
+  display inline-flex
+  align-items center
+.flex-bs
+  display flex
+  align-items center
+  justify-content space-between
+.flex-bc
+  display flex
+  align-items center
+  justify-content center
+.flex-center
+  display flex
+  align-items center
+  justify-content center
+.full-layout
+  position fixed
+  top 0
+  bottom 0
+  left 0
+  right 0
+  z-index 10
+.full-layout--edit
+  position fixed
+  top 0
+  bottom 0
+  left 0
+  right 0
+  z-index 11
+  background-color rgba(0, 0, 0, 0.5)
+.full
+  height 100vh
+  box-sizing border-box
+  > div
+    height 100%
+    overflow-y auto
+.full-bottom
+  padding-bottom 1rem
+  @extend .full
+.full-top
+  padding-top $header-height
+  @extend .full
+.full-center
+  padding-top $header-height
+  // padding-bottom 1rem
+  @extend .full
+.slide-wrapper
+  .slide-container
+    width 100%
+    overflow scroll
+    &::-webkit-scrollbar
+      display none
+    ul
+      display flex
+      float left
+      height 100%
+      li
+        margin 0 0.3rem
+        float left
+        display inline-block
+        height 100%
+.header-icon
+  margin-top 0.14rem
+  display inline-block
+  height 0.6rem
+  width 0.6rem
+  border-radius 50%
+  text-align center
+  &.c-rgb
+    background-color rgba(0, 0, 0, 0.3)
+/* 试题样式 */
+.input-box
+  margin-right 0.2rem
+  position relative
+  width $exam-input-len
+  height $exam-input-len
+  &-label
+    height 100%
+    border 1px solid $theme-color
+    background-color #FFF
+    border-radius 50%
+    &.active
+      background-color $theme-color
+      color #FFF
+  input[type='radio'], input[type='checkbox']
+    position absolute
+    margin 0
+    width 100%
+    height 100%
+    opacity 0
+    z-index 9
+    & + label
+      position absolute
+      display inline-block
+      width 100%
+      height 100%
+      line-height $exam-input-len
+      border 1px solid $theme-color
+      border-radius 50%
+      text-align center
+      box-sizing boder-box
+      color $theme-color
+      background-color #FFF
+      font-weight bold
+      z-index 8
+    &:checked + label
+      color #FFF
+      background-color $theme-color
+.page-exam
+  .cube-scroll-nav-bar
+    color $text-color-6
+    border-1px(bottom)
+    .cube-scroll-wrapper
+      text-align left
+    &-item
+      padding 0.33rem 0.44rem
+      &_active
+        position relative
+        color $theme-color
+        &::after
+          content ''
+          display inline-block
+          position absolute
+          left 50%
+          margin-left -0.16rem
+          bottom 0
+          width 0.32rem
+          height 0.04rem
+          background-color $theme-color
+  .exam
+    &-body
+      padding $layout-padding
+      box-sizing border-box
+      img
+        margin 0.2rem 0
+  .full-topic
+    position absolute
+    left 0
+    right 0
+    bottom 0
+    top 2rem
+    > .scroll
+      height 100%
+      overflow-y auto
+/* 底部栏图标样式 */
+.footer
+  font-size 12px
+  .icon
+    margin-top 0.13rem
+    display inline-block
+    width 0.44rem
+    height 0.44rem
+    background-size contain
+    background-repeat no-repeat
+    background-position center
+  a
+    color #777777
+    text-decoration none
+    .name
+      margin-top 0.09rem
+  .i-home
+    background-image url('../img/home@2x.png')
+  .i-study
+    background-image url('../img/study@2x.png')
+  .i-shop
+    background-image url('../img/market@2x.png')
+  .i-my
+    background-image url('../img/my@2x.png')
+  .router-link-active
+    color #3496e1
+    .i-home
+      background-image url('../img/home-active@2x.png')
+    .i-study
+      background-image url('../img/study-active@2x.png')
+    .i-shop
+      background-image url('../img/market-active@2x.png')
+    .i-my
+      background-image url('../img/my-active@2x.png')
+/* 首页面板样式 */
+.slide-panel
+  overflow hidden
+  margin-bottom 0.2rem
+  &-title
+    margin $layout-padding 0
+    .left
+      color $text-color-3
+      div
+        margin-right 0.13rem
+    .right
+      color #A6A6A6
+      div
+        margin-left 0.1rem
+  &-body
+    .swiper-slide
+      margin-right $layout-padding
+      &:first-child
+        margin-left $layout-padding
+.between-layout
+  display flex
+  > div
+    display inline-flex
+    flex-direction column
+    justify-content space-between
+    flex 1
+    overflow hidden
+/* 用户注册登录表单样式 */
+.user-form
+  margin-top 0.5rem
+  .form-control
+    position relative
+    padding 0.3rem 0
+    border-bottom 1px solid #dfe6eb
+    > input
+      width 100%
+      box-sizing border-box
+      padding-left 0.6rem
+    > span
+      position absolute
+      left 0
+      top 0.3rem
+    .form-align--center
+      position absolute
+      top 50%
+      right 0
+      transform translateY(-50%)
+    img
+      width 1.44rem
+      height 0.5rem
+      box-shadow 0 0 0.06rem rgba(0, 0, 0, 0.3)
+    .btn-send
+      padding 0.13rem
+      border-radius 0.06rem
+      color $theme-color
+      font-size 12px
+      border 1px solid $theme-color
+/* ---------------- 分隔符 --------------- */
+button
+  border none
+  outline none
+  &.btn-test
+    set-button(6.6rem, 0.8rem, true)
+.swiper-pagination-bullet
+  margin-right 0.1rem
+.icon-success, .icon-failed
+  margin 0 auto
+.circle
+  border-radius 5px
+.course-tips
+  margin-top 0.2rem
+  color #000
+  font-size 14px
+.img-panel
+  margin 0 auto
+  margin-top 0.75rem
+  width 1.36rem
+.view-scroll-y
+  overflow-y scroll
+  -webkit-overflow-scrolling touch
+.ui-slide
+  display -webkit-box
+  overflow-x scroll
+  -webkit-overflow-scrolling touch
+  &:after
+    content ''
+    display inline-block
+    width 0.3rem
+    height 1px
+  img.img-shadow
+    border-radius 5px
+    box-shadow 0 3px 3px rgba(0, 0, 0, 0.2)
+.footer-title
+  span
+    &:before
+      position absolute
+      content ''
+      display inline-block
+      apply(left -0.5rem, top 0.15rem)
+      width 0.4rem
+      height 2px
+      background-color #999
+    &:after
+      position absolute
+      content ''
+      display inline-block
+      apply(right -0.5rem, top 0.15rem)
+      width 0.4rem
+      height 2px
+      background-color #999
+.scroll
+  &-wrapper
+    setMarginAndPadding()
+    overflow hidden
+    position absolute
+    width 100%
+    apply(top 0.88rem, bottom 0, left 0)
+    box-sizing()
+    contain layout
+    will-change transform
+/* 输入框 */
+.ui-textarea
+  &__body
+    input
+      flex 1
+      &.qt
+        width 100%
+        margin-bottom 0.2rem
+        padding 0.2rem 0.3rem
+        box-sizing()
+    textarea
+      width 100%
+      padding 0 0.3rem
+      resize none
+      border none
+      line-height 0.42rem
+      box-sizing()
+      &:focus
+        outline none
+    .text-right
+      margin-right 10px
+      margin-top 10px
+  &__bottom
+    height 1rem
+    button
+      height 100%
+      padding 0 0.42rem
+      background-color transparent
+  p.txt
+    flex 1
+    color $txt-color
+  a
+    height 100%
+    line-height 1rem
+    padding 0 0.3rem
+    color theme-color

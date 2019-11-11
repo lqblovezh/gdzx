@@ -1,0 +1,77 @@
+@import './var.styl';
+@import './util.styl';
+@import './mixin.styl';
+.oh
+  overflow hidden
+img
+  max-width 100%
+.line-single
+  height 1px
+  background #e5e5e5
+  transform scaleY(0.5)
+.line-part
+  height 0.2rem
+  background #F4F5F7
+.hidden
+  display none
+.word
+  word-wrap break-word
+  word-break break-all
+.bc
+  position absolute
+  top 50%
+  left 50%
+  transform translate(-50%, -50%)
+.fl
+  float left
+.fr
+  float right
+.pr 
+  position relative
+.pa
+  position absolute
+.pf
+  position fixed
+.text-right
+  text-align right
+.text-center
+  text-align center
+.ib
+  display inline-block
+.tc
+  text-align center
+.parent-bg
+  background transparent
+.reset-bo
+  border none
+  outline none
+
+color-base('f', $color-white)
+color-base('3', $text-color-3)
+color-base('4', $text-color-4)
+color-base('5', $text-color-5)
+color-base('6', $text-color-6)
+color-base('7', $text-color-7)
+color-base('8', $text-color-8)
+color-base('9', $text-color-9)
+color-base('theme', $theme-color)
+
+.ell
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+
+for line in 2 3 4 5
+  .ell{line}
+    overflow hidden
+    text-overflow ellipsis
+    display -webkit-box
+    -webkit-line-clamp line
+    -webkit-box-orient vertical
+
+for fz in 12 13 14 15 16 17 18
+  .f{fz}
+    font-size unit(fz, px)
+
+for num in 0.1 0.15 0.2 0.3 0.4
+  set-padding(num, 'rem', true)

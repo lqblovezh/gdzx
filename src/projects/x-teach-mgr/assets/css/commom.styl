@@ -1,0 +1,70 @@
+body,html
+  height 100%
+  background #ececec
+  input[disabled]
+  textarea[disabled]
+      background #f3f3f3
+  fieldset[disabled]
+    input[type="text"],
+    textarea
+      background #f3f3f3
+    button,
+    button:hover,
+    button.is-plain,
+    button.is-plain:hover 
+      cursor no-drop
+      background #f3f3f3
+      color #ddd
+      border-color: #ddd
+    i
+      color #ddd
+.group
+.group-inline
+  line-height: 38px;
+  margin 10px 0
+  .label
+    display: inline-block
+    text-align right
+    padding-right 20px
+    min-width 100px
+    color #000
+.group-inline
+  margin 0 10px
+  display inline-block
+/* 表格重置*/
+.table
+  table-layout fixed
+  width 100%
+  // min-width 600px
+  border-spacing 0
+  border-collapse collapse
+  display: table
+  &.border
+    border: 1px solid #ddd
+    tr
+      border 1px solid #ddd
+  thead
+    display: table-header-group
+    vertical-align middle
+    border-color inherit
+    background #efefef
+  tbody
+    display table-row-group
+    vertical-align middle
+    border-color inherit
+
+  tbody > tr:hover
+    background: #fafafa
+  tbody > tr:nth-child(2n)
+    background: #efefef
+  tr
+    display: table-row
+    vertical-align: inherit
+    border-color: inherit
+    height 50px
+  th,td
+    padding 8px
+    line-height 20px
+    vertical-align middle
+    word-wrap  break-all
+    text-align left

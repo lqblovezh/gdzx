@@ -1,0 +1,1 @@
+export const SET_RESOURCE_LIST = 'SET_RESOURCE_LIST'

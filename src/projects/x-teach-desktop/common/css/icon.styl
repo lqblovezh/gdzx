@@ -1,0 +1,51 @@
+
+$top-icons = comment like like-white cart cart-white alert alert-white search search-white sign sign-white menu more arrow-right user-edit right-arrow phone open studied center center-white exit exit-white
+$top-icons2 = review see into wrong-book commit back delete integral-five integral-ten integral-twenty integral-fifty answer answer-s discuss discuss-s private private-s info info-s
+$top-icons3 = jobs lady man integral integration success failure
+$top-icons4 = user-qq user-qq-s wechat wechat-s
+$top-icons5 = evaluate1 evaluate2 evaluate3 evaluate4 evaluate5
+.icon
+  display inline-block
+  background-repeat no-repeat
+  background-position center
+  vertical-align text-bottom
+  cursor pointer
+set-icon(name, w = 0, h = 0)
+  if (w)
+    .icon-{name}
+      width w
+      height h
+      background-image url('./img/' + name + '.png')
+      background-repeat no-repeat
+  else
+    .icon-{name}
+      background-image url('./img/' + name + '.png')
+set-icon('logo', 61px, 45px)
+set-icon('logo-white', 61px, 45px)
+set-icon('avatar', 32px, 32px)
+set-icon('advertising', 36px, 29px)
+set-icon('close', 40px, 40px)
+set-icon('close_d', 20px, 20px)
+set-icon('arrow-left', 8px, 14px)
+set-icon('user-bg', 1200px, 200px)
+set-icon('paper', 18px, 19px)
+set-icon('js_bg')
+set-icon('payali', 200px, 50px)
+set-icon('paywe', 200px, 50px)
+set-icon('upload', 50px, 50px)
+set-icon('expand', 16px, 14px)
+set-icon('opens', 10px, 7px)
+set-icon('address', 18px, 22px)
+set-icon('topBtn', 60px, 60px)
+set-icon('weixin', 45px, 45px)
+set-icon('weibo', 45px, 45px)
+for name in $top-icons
+  set-icon(name, 20px, 20px)
+for name in $top-icons2
+  set-icon(name, 20px, 20px)
+for name in $top-icons4
+  set-icon(name, 37px, 37px)
+for name in $top-icons3
+  set-icon(name)
+for name in $top-icons5
+  set-icon(name, 151px,136px)

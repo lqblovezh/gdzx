@@ -1,0 +1,67 @@
+@import './variable'
+
+html
+  font-family 'Microsoft YaHei'
+body
+  // min-width 1300px
+  word-break break-all
+.no-data
+  color #666
+  text-align center
+  font-size 16px
+  line-height 100px
+// 居中
+.cbox
+  width 1200px
+  margin 0 auto
+// 浮动修复
+.fix
+  &::after
+    content ' '
+    display block
+    clear both
+// 垂直居中
+.vertical-center
+  position absolute
+  top 50%
+  transform translateY(-50%)
+// 快捷缩写
+.ib
+  display inline-block
+.vt
+  vertical-align top
+.vm
+  vertical-align middle
+.vm-all
+  vertical-align middle
+  >span, >div, >img, >input
+    vertical-align middle
+.vt-all
+  vertical-align top
+  >span, >div, >img, >input
+    vertical-align top
+.vb
+  vertical-align bottom
+.cp
+  cursor pointer
+.fl
+  float left
+.fr
+  float right
+.tc
+  text-align center!important
+.tl
+  text-align left
+.tr
+  text-align right
+.bbox
+  box-sizing border-box
+.pr
+  position relative
+.pa
+  position absolute
+.hide
+  display none
+.full
+  width 100%
+  height 100%

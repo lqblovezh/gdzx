@@ -1,0 +1,329 @@
+<script>
+import { main } from '@/util/mixins'
+import qs from 'qs'
+import {
+  getTask
+} from 'services/common'
+import * as service from "services/x-teach/setting"
+import * as course from "services/x-teach/course"
+import * as lives from "services/x-teach/lives"
+export default {
+  mixins: [main],
+  data(){
+    return {
+      dialogVisible:false,
+      service,
+      tableData:{course:[],teacher:[],live:[]},
+      id:'',
+      toPage:'course',
+      form:{},
+      query:{
+      },
+      courseList:{},
+      liveList:{},
+      teacherList:{},
+      info:{type:'',info:''},
+      names:[{name:'课程名称',type:'xx'},{name:'所属教师',type:'dd'}]
+    }
+  },
+  methods:{
+    getList(){
+      if(this.toPage == 'course'){
+        course.getList({status:1,...this.page}).then(res=>{
+        if(res && res.status){
+          this.courseList = res.data
+        }
+         this.total = res.page.total
+        })
+      }else if(this.toPage == 'live'){
+        lives.getList({online:true,...this.page}).then(res=>{
+        if(res && res.data){
+          this.liveList = res.data
+          this.total = res.page.total
+        } 
+        })
+      }else if(this.toPage == 'teacher'){
+         service.teacherList().then(res=>{
+           this.teacherList = res.data
+           this.total = res.page.total
+         })
+      }
+      service.courseList({type:this.toPage}).then(res=>{
+        if(res && res.status){
+          this.tableData[this.toPage] = res.data
+        }
+      })
+    },
+    del(index,id){
+      service.courseDel({id}).then(res=>{
+         this.tableData[this.toPage].splice(index,1);
+         course.getList({status:1}).then(res=>{
+          this.courseList = res.data
+         })
+         this.$message.success("删除成功")
+      },err=>{
+         this.$message.error("删除失败")
+      })
+    },
+    save_copyright(){
+      this.changeData();
+    },
+    open(){
+     this.dialogVisible = true;
+    },
+    show() {
+      let ids = [];
+      if(this.toPage=='course'){
+        this.info.type = 'course_info'
+        this.info.info = 'courseList'
+      }else if(this.toPage=='live'){
+        this.info.type = 'live_info'
+        this.info.info = 'liveList'
+      }else if(this.toPage=='teacher'){
+        this.info.type = 'teacher_info'
+        this.info.info = 'teacherList'
+      }
+       log(this.tableData[this.toPage],99988877)
+      this.tableData[this.toPage].forEach(e=>{
+          if(e[this.info.type]){
+            ids.push(e[this.info.type].id)
+          }
+      })
+      this.$nextTick(_ => {
+          if(this[this.info.info]){
+            this[this.info.info].forEach(el=>{
+             if(ids.includes(el.id)){
+               this.$refs.table.toggleRowSelection(el,true);
+             }
+          })
+          }
+          
+      })
+      
+    },
+    sendInfo(){
+      let ids = [];
+      let saveIds=[];
+      this.tableData[this.toPage].forEach(e=>{
+        if(e[this.info.type]){
+          ids.push(e[this.info.type].id)
+          if(!this.ids.includes(e[this.info.type].id)){
+            service.courseDel({id:e.id})
+            this.getList({key:this.toPage,...this.query})
+          }
+        }  
+      })
+      this.ids.forEach(e=>{
+         if(!ids.includes(e)){
+           saveIds.push(e)
+         }
+      })
+      if(saveIds.length){
+        service.recommend({type:this.toPage,id:saveIds}).then(res=>{
+         this.getList({key:this.radio,...this.query})
+        })
+      }
+      this.dialogVisible= false
+    },
+  },
+  watch:{
+    toPage(){
+      this.getList();
+      if(this.toPage =='live'){
+        this.names=[{name:'直播名称',type:'xx'},{name:'直播教师',type:'dd'}]
+      }else if(this.toPage=='teacher'){
+        this.names=[{name:'教师名称',type:'xx'},{name:'电话',type:'dd'}]
+      }else if(this.toPage="course"){
+        this.names=[{name:'课程名称',type:'xx'},{name:'所属教师',type:'dd'}]
+      }
+    }
+  }
+}
+
+</script>
+
+<template lang="pug">
+.setting
+  .head
+    el-button-group
+      el-button(@click="$router.push({path:'/wms/setting/banner'})") banner设置
+      el-button(@click="$router.push({path:'/wms/setting/ad'})") 广告位
+      el-button( @click="$router.push({path:'/wms/setting/advert'})") 侧边广告
+      el-button(type="primary" @click="$router.push({path:'/wms/setting/commend'})") 推荐设置
+      el-button(@click="$router.push({path:'/wms/setting/footer'})") 底部设置
+    .flat
+      el-radio(v-model="toPage" label="course") 精品课程
+      el-radio(v-model="toPage" label="teacher") 教师大咖
+      el-radio(v-model="toPage" label="live") 直播教学
+  .content
+    .part(v-if="toPage == 'course'") 
+      .title 精品课程
+        el-button.add(type="primary" size="small" @click="open('')") 增加
+      .list
+        .item(v-for="item,index in tableData.course" v-show="item.course_info")
+          img.cover(:src="item.course_info.img")
+          .txt
+            span {{item.course_info.course_name}}
+            span.el-icon-delete.del(@click="del(index,item.id)")
+    .part(v-if="toPage == 'teacher'") 
+      .title 教师大咖
+        el-button.add(type="primary" size="small" @click="open('')") 增加
+      .list
+        .item(v-for="item,index in tableData.teacher" v-if="item.teacher_info")
+          img.cover(:src="item.teacher_info.picture_absolute")
+          .txt
+            span {{item.teacher_info.nick_name}}
+            span.el-icon-delete.del(@click="del(index,item.id)")
+    .part(v-if="toPage == 'live'")  
+      .title 直播教学
+        el-button.add(type="primary" size="small" @click="open('')") 增加
+      .list
+        .item(v-for="item,index in tableData.live" v-if="item.live_info")
+          .img
+            img.cover(:src="item.live_info.img")
+          .txt
+            span {{item.live_info.title}}
+            span.el-icon-delete.del(@click="del(index,item.id)")
+    el-dialog(title="勾选添加数据" width="1100px" :visible.sync="dialogVisible" @open="show")
+      //.query()
+        el-input.width(:placeholder="names[0].name"  clearable v-model="query[names[0].type]" size="small")
+        el-input.width(:placeholder="names[1].name"  clearable v-model="query[names[1].type]" size="small")
+        el-button(type="primary" size="small" @click="getList()") 搜索
+      el-table(ref="table"
+        stripe
+        :data="courseList"
+        v-if="this.toPage=='course' && courseList"
+        tooltip-effect="dark" 
+        style="width: 100%"
+        key="1"
+        @selection-change="handleSelectionChange"
+      ) 
+        el-table-column(type="selection" width="55" fixed)
+        el-table-column( prop="course_name" label="课程名称")
+        el-table-column( prop="id" label="所属教师" )
+        el-table-column( prop="price" label="价格")
+        el-table-column( prop="abs" label="简介")
+        el-table-column( prop="create_time" label="创建时间" width="200")
+      el-table(ref="table"
+        stripe
+        :data="teacherList"
+        v-if="this.toPage=='teacher' && teacherList"
+        tooltip-effect="dark" 
+        style="width: 100%"
+        @selection-change="handleSelectionChange"
+        key="2"
+      ) 
+        el-table-column( type="selection" width="55" fixed)
+        el-table-column( prop="nick_name" label="教师名称")
+        el-table-column( prop="phone" label="电话" )
+        el-table-column( prop="email" label="邮箱")
+        el-table-column( prop="education" label="学历")
+        el-table-column( prop="company" label="单位")
+        el-table-column( prop="summary" label="简介")
+        el-table-column( prop="date_of_birth" label="生日")
+      el-table(ref="table"
+        stripe
+        :data="liveList"
+        v-if="this.toPage=='live' && liveList"
+        tooltip-effect="dark"
+        style="width: 100%"
+        key="3"
+        @selection-change="handleSelectionChange"
+      ) 
+        el-table-column(type="selection" width="55" fixed)
+        el-table-column( prop="title" label="直播名称")
+        el-table-column( prop="teacher_name" label="直播教师" )
+        el-table-column( prop="price" label="直播地址")
+          template(slot-scope="scope")
+            a(:href="scope.row.url") {{scope.row.url}}
+        el-table-column( prop="introduce" label="简介")
+        el-table-column( prop="audit_time" label="直播时间" width="200")
+      .page
+        el-pagination(
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="1"
+          :page-sizes="[10,50,100]"
+          :page-size="10"
+          background
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="total"
+          )
+      span(slot="footer" class="dialog-footer")
+        el-button(@click="dialogVisible= false" size="small") 取消
+        el-button(type="primary" @click="sendInfo('updateImg')" size="small") 确定
+</template>
+
+<style lang="stylus" scoped>
+.setting
+  padding 20px
+  color #444
+  min-width 1660px
+  .head 
+    background #fff
+    padding 15px
+    border-radius 5px
+    box-shadow 3px 3px 8px #dfdfdf
+    margin-bottom 20px
+    .flat 
+      padding 20px 0 10px 0
+.content 
+  background #fff
+  padding 15px
+  border-radius 5px
+  box-shadow 3px -3px 8px #dfdfdf
+  .part
+    .title 
+      margin-bottom 12px
+      font-weight bold
+      line-height 30px
+      font-size 18px 
+      .add 
+        margin-left 20px
+  .list 
+    margin-bottom 20px
+    display flex
+    flex-wrap wrap
+    .item 
+      border 1px solid #e8e8e8
+      border-radius 5px
+      box-shadow 3px 3px 20px #e8e8e8
+      margin 8px
+      width 17.65%
+      flex-grow auto
+      padding 10px
+    .img
+      height 290px
+      background #e8e8e8
+      margin-bottom 10px
+    .cover
+      display block
+      width 100%
+      height 290px
+      object-fit contain
+      margin-bottom 10px
+.updateImg
+  display none
+.banner 
+  max-width 300px
+  margin-right 20px
+.txt
+  display flex 
+  justify-content space-between
+  .del 
+    color #f00 
+    cursor pointer
+a
+  color #44c3aa
+  text-decoration none
+.page
+  padding-top 20px
+  text-align  center
+.query
+  border-footer 1px solid #666
+  overflow hidden
+  .width 
+    width 170px
+    margin-right 10px
+</style>
+

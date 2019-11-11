@@ -1,0 +1,39 @@
+body // element-ui 重置
+  .el-pager
+    >li
+      &.active
+        cursor pointer
+        color #fff
+        background #309fc3 !important
+        &:hover
+          color #fff !important
+      &:hover
+        color #309fc3 !important
+  .el-rate
+    display inline-block
+  .el-checkbox, .el-radio__label
+    white-space normal
+  .el-message
+    top 30%
+    margin-top -24px
+  .v-modal
+    opacity none
+    background rgba(0, 0, 0, 0.6)
+  .v-model-enter, .v-model-leave
+    animation none
+  .el-popover
+    &.personal
+      padding 8px 0
+    &.course
+      max-width 985px
+      padding 10px
+    &.follow
+      img
+        max-width 200px
+        max-height 200px
+  .el-radio-button__orig-radio:checked+.el-radio-button__inner
+    background-color #ffa800
+    border-color #ffa800
+    box-shadow none
+  .el-radio-button:focus:not(.is-focus):not(:active)
+    box-shadow none

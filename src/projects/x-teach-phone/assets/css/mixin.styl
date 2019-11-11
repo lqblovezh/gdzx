@@ -1,0 +1,44 @@
+border-1px($loc = all, $color = #ccc, $radius = 2PX, $style = solid)
+  position: relative
+  &::after
+    content: ""
+    pointer-events: none
+    display: block
+    position: absolute
+    left: 0
+    top: 0
+    transform-origin: 0 0
+    if $loc == top
+      border-top: 1PX $style $color
+    else if $loc == bottom
+      border-bottom: 1PX $style $color
+    else
+      border: 1PX $style $color
+    border-radius: $radius
+    box-sizing border-box
+    width 100%
+    height 100%
+    @media (min-resolution: 2dppx)
+      width: 200%
+      height: 200%
+      border-radius: $radius * 2
+      transform: scale(.5)
+    @media (min-resolution: 3dppx)
+      width: 300%
+      height: 300%
+      border-radius: $radius * 3
+      transform: scale(.333)
+
+icon-bg(name, w, h, ext = ".png")
+  .i-{name}
+    display inline-block
+    width w
+    height h
+    background url("../img/" + name + "@2x" + ext) no-repeat center center
+    background-size contain
+
+color-base(name, value)
+  .c-{name}
+    color value
+  .c-bg-{name}
+    background-color value

@@ -1,0 +1,190 @@
+@import './variable'
+
+// 防止右侧突出 方案2
+// 当前屏幕是否 大于1200px
+// min-width 表示一种条件, 当前屏幕的宽度 满足最小宽度 1200px
+// 简单记忆: 相反 srceen > 1200px 执行下列样式
+@media screen and (min-width: 1750px)
+  .rank-wrap
+    right -10px !important
+@media screen and (min-width: 1810px)
+  .rank-wrap
+    right -30px !important
+@media screen and (min-width: 1910px)
+  .rank-wrap
+    right -50px !important
+@media screen and (max-width: 1750px)
+  .rank-wrap
+    background-color red !important
+    width 50px !important
+    display none
+.bd_line
+  box-sizing border-box
+  border-bottom 1px solid $border-color
+.course_inp
+  outline none
+  height 32px
+  line-height 32px
+  min-width 240px
+  text-indent 10px
+  border-radius 4px
+  border solid 1px #dadada
+  box-sizing border-box
+.blue_inp_btn
+  display inline-block
+  height 32px
+  width 52px
+  background-color $main-color
+  border-radius 4px
+.login_btn
+  height 38px
+  line-height 38px
+  background #309fc3
+  border-radius 4px
+  color #fff
+  display inline-block
+  width 120px
+  font-size 16px
+  text-align center
+  cursor pointer
+  &.grey
+    background #c3c3c3
+    color fff
+// 左侧竖线
+.vertical-line
+  position relative
+  &::before
+    content ' '
+    display block
+    position absolute
+    width 5px
+    height 21px
+    background-color $main-color
+    top 50%
+    transform translateY(-50%)
+// 右上角number提示
+.tip
+  position absolute
+  font-size 12px
+  width 14px
+  height 14px
+  background-color #ff8d00
+  color #fff
+  border-radius 50%
+  line-height 13px
+  text-align center
+.normal_ls_item_horizon
+  padding 0 30px
+  >.item
+    padding 26px 0
+    border-bottom 1px solid #e9eef0
+.mybtn
+  display inline-block
+  height 36px
+  line-height 36px
+  padding 0 26px
+  text-align center
+  border-radius 4px
+  box-sizing border-box
+  font-size 14px
+  >div
+    &:nth-child(2)
+      margin-left 12px
+  &.og
+    background #ffa800
+    color #fff
+  &.bd
+    border-width 1px
+    border-style solid
+  &.trans
+    background rgba(255, 255, 255, 0.2)
+    color #fff
+    border 1px solid #fff
+.page-teacher-same
+  padding-bottom 70px
+  >.cbox
+    margin-top 40px
+    >.wrap
+      >.cbody
+        min-height 600px
+.rotate180
+  transform rotate(180deg)
+// 按钮和文字
+.btns
+  >div
+    margin-right 20px
+    cursor pointer
+    transition color 0.2s ease
+    &:last-child
+      margin-right 0
+    >span:nth-child(2)
+      margin-left 5px
+  &.hover
+    >div
+      &:hover
+        color $main-color
+// table
+.table
+  border-spacing 2px
+  font-size 15px
+  width 100%
+  tr
+    td, th
+      padding 24px 15px
+      min-width 0
+      box-sizing border-box
+      text-overflow ellipsis
+      vertical-align middle
+      position relative
+      text-align left
+      line-height 20px
+  >thead
+    >tr
+      border-bottom 1px solid #ebeef5
+      background #f5f5f5
+      >th
+        color #333
+  >tbody
+    display table-row-group
+    vertical-align middle
+    border-color inherit
+    font-weight 400
+    >tr
+      &:hover
+        background #f5f5f5
+      >td
+        border-bottom 1px solid #ebeef5
+        transition background-color 0.25s ease
+        color #575757
+        >.btns
+          >span
+            cursor pointer
+// input 重置
+input, textarea
+  width 165px
+  height 32px
+  padding-left 10px
+  transition color 0.1s ease
+  border-radius 4px
+  box-sizing border-box
+  border solid 1px #fff
+  resize none
+  font-size 15px
+  &:focus
+    border solid 1px $main-color
+  &.bd_e
+    border solid 1px #e0e0e0
+    &:focus
+      border solid 1px $main-color
+
+.ui-video
+  height 100vh
+  display flex
+  flex-direction column
+  .ui-video-container
+    flex 1
+.flex
+  display flex
+.flex-between
+  justify-content space-between
+  align-items center
